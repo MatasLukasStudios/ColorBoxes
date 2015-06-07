@@ -19,17 +19,24 @@ public class Clickers : MonoBehaviour
     {
 
         Debug.Log(Generator.isDead);
-
+        if(sutampa && enemy.transform.position.x <= -7.45f)
+        {
+            Generator.isDead = true;
+        }
     }
 
     void OnMouseDown()
     {
+        Generator.isDead = true;
+
         if (sutampa)
         {
+            Generator.isDead = false;
             Generator.score++;
             GameObject pusher = GameObject.Find("Pusher");
             pusher.SendMessage("changeDifficulty", Check());
             Destroy(enemy);
+            
 
         }
         else
@@ -50,6 +57,9 @@ public class Clickers : MonoBehaviour
         int difficulty = 0;
         if(Generator.score >= 3)
         {
+            Generator.spawnRate = 0.8f;
+            WhiteScript.c_Speed = 6;
+            CircleScript.c_Speed = 6;
             difficulty = 1;
         }
         return difficulty;

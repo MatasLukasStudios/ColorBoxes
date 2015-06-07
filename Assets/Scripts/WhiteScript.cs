@@ -4,7 +4,8 @@ using System.Collections;
 public class WhiteScript : MonoBehaviour {
 
     public Sprite[] circles;
-    public float c_Speed;
+    public static float c_Speed = 5;
+    private GameObject testlol;
 	// Use this for initialization
 	void Start () {
 	
@@ -13,12 +14,9 @@ public class WhiteScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
     {
-
+        
         this.gameObject.transform.Translate(Vector3.left * Time.deltaTime * c_Speed);
-        if (Generator.score >= 2)
-        {
-            c_Speed = 4;
-        }
+       
 	}
 
     void OnTriggerEnter2D(Collider2D other)
@@ -54,6 +52,7 @@ public class WhiteScript : MonoBehaviour {
                 color = 3;
                 break;
         }
+        this.gameObject.GetComponent<Animator>().SetTrigger("ChangeColor");
         this.gameObject.GetComponent<SpriteRenderer>().sprite = circles[color];
         
     }

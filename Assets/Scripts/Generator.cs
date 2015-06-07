@@ -5,25 +5,27 @@ public class Generator : MonoBehaviour {
 
 
     public GameObject whiteCircle;
-    public float spawnRate;
+    public static float spawnRate = 1;
     public static bool isDead;
     
     public static int score;
     private GameObject scoreText;
    
     // Lines
-    private float redLine = 3.5f;
-    private float greenLine = 1.3f;
-    private float blueLine = -0.9f;
-    private float yellowLine = -3.2f;
+    private float redLine = 3.7f;
+    private float greenLine = 1.7f;
+    private float blueLine = -0.6f;
+    private float yellowLine = -3;
+    public static float theBlur = Mathf.Lerp(0, 5, 2);
+    public GameObject blurCamera;
     //Line end
 
 	// Use this for initialization
 	void Start () 
     {
+        blurCamera.gameObject.SetActive(false);
         scoreText = GameObject.Find("Score");
-        InvokeRepeating("SpawnCircle", 0, spawnRate);
-        
+        InvokeRepeating("SpawnCircle", 0, spawnRate); 
 
 	}
 	
@@ -34,6 +36,8 @@ public class Generator : MonoBehaviour {
 
         if(isDead)
         {
+
+            blurCamera.gameObject.SetActive(true);
             Time.timeScale = 0;
 
         }
