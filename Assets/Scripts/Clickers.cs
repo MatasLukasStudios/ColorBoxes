@@ -18,10 +18,10 @@ public class Clickers : MonoBehaviour
     void Update()
     {
 
-        Debug.Log(Generator.isDead);
+        
         if(sutampa && enemy.transform.position.x <= -7.45f)
         {
-            Generator.isDead = true;
+          //  Generator.isDead = true;
         }
     }
 
@@ -33,9 +33,9 @@ public class Clickers : MonoBehaviour
         {
             Generator.isDead = false;
             Generator.score++;
+            Destroy(enemy);
             GameObject pusher = GameObject.Find("Pusher");
             pusher.SendMessage("changeDifficulty", Check());
-            Destroy(enemy);
             
 
         }

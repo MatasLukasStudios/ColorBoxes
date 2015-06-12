@@ -12,9 +12,9 @@ public class Generator : MonoBehaviour {
     private GameObject scoreText;
    
     // Lines
-    private float redLine = 3.7f;
-    private float greenLine = 1.7f;
-    private float blueLine = -0.6f;
+    private float redLine = 3.3f;
+    private float greenLine = 1.2f;
+    private float blueLine = -1f;
     private float yellowLine = -3;
     public static float theBlur = Mathf.Lerp(0, 5, 2);
     public GameObject blurCamera;

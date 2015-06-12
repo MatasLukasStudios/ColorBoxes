@@ -54,7 +54,11 @@ public class WhiteScript : MonoBehaviour {
         }
         this.gameObject.GetComponent<Animator>().SetTrigger("ChangeColor");
         this.gameObject.GetComponent<SpriteRenderer>().sprite = circles[color];
-        
+        Vector3 changeScale;
+        changeScale.x = 0.8f;
+        changeScale.y = 0.8f;
+        changeScale.z = 0.8f;
+        this.gameObject.gameObject.transform.localScale = changeScale;
     }
 
 }
